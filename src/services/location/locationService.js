@@ -1,15 +1,8 @@
 import camelize from "camelize";
 
-import { locations } from "./mock/mockLocations";
-
-export const locationRequest = (searchTerm) => {
-    return new Promise((resolve, reject) => {
-        const locationMock = locations[searchTerm];
-        if (!locationMock) {
-            reject("not found");
-        }
-        resolve(locationMock);
-    });
+export const locationRequest = async (searchTerm) => {
+    const resp = await fetch(`http://localhost:5001/mealstogo-78c2c/us-central1/geocode?city=${searchTerm}`)
+    return await resp.json()
 };
 
 export const locationTransform = (result) => {
