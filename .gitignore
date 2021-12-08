@@ -16,4 +16,3 @@ web-build/
 */node_modules/**/*
 
 function/
-src/firebase/firebaseSetup.js
