@@ -1,9 +1,10 @@
 import camelize from "camelize";
+import { host } from '../../utils/env'
 
 export const restaurantsRequest = async (location = "37.7749295,-122.4194155") => {
     try {
         const resp = await fetch(
-            `https://us-central1-mealstogo-78c2c.cloudfunctions.net/places ?location=${location}`
+            `${host}/places?location=${location}`
         )
         return await resp.json()
     } catch (error) {
