@@ -1,7 +1,7 @@
 import camelize from "camelize";
 
 export const locationRequest = async (searchTerm) => {
-    const url = "http://192.168.1.6:5001/mealstogo-78c2c/us-central1/geocode"
+    const url = "https://us-central1-mealstogo-78c2c.cloudfunctions.net/geocode"
     try {
         const resp = await fetch(url + `?city=${searchTerm}`)
         return await resp.json()
