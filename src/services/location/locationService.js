@@ -1,8 +1,14 @@
 import camelize from "camelize";
 
 export const locationRequest = async (searchTerm) => {
-    const resp = await fetch(`http://localhost:5001/mealstogo-78c2c/us-central1/geocode?city=${searchTerm}`)
-    return await resp.json()
+    const url = "http://192.168.1.6:5001/mealstogo-78c2c/us-central1/geocode"
+    try {
+        const resp = await fetch(url + `?city=${searchTerm}`)
+        return await resp.json()
+    } catch (error) {
+        console.log(error)
+    }
+
 };
 
 export const locationTransform = (result) => {
