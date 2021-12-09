@@ -16,3 +16,4 @@ web-build/
 */node_modules/**/*
 
 function/
+.runtimeconfig.json

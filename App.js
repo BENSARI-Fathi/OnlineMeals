@@ -28,5 +28,3 @@ export default function App() {
     </ThemeProvider >
   );
 }
-
-// folder 8 => current 64 => next 65
