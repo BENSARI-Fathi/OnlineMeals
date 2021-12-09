@@ -22,7 +22,7 @@ module.exports.placesRequest = (request, response, client) => {
     if (mock === "true") {
         const data = mocks[location]
         if (data) {
-            data.results.map(addMockImage)
+            data.results.map(addGoogleImage)
         }
         return response.json(data)
     }
