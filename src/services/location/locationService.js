@@ -1,9 +1,9 @@
 import camelize from "camelize";
-import { host } from '../../utils/env'
+import { host, isMock } from '../../utils/env'
 
 export const locationRequest = async (searchTerm) => {
     try {
-        const resp = await fetch(`${host}/geocode?city=${searchTerm}`)
+        const resp = await fetch(`${host}/geocode?city=${searchTerm}&mock=${isMock}`)
         return await resp.json()
     } catch (error) {
         console.log(error)
