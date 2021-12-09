@@ -36,3 +36,9 @@ export const Rating = styled.View`
 flex-direction: row;
 padding-top: ${(props) => props.theme.space[1]}
 `
+
+export const ErrorMessage = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+`

@@ -6,8 +6,14 @@ import { LocationContext } from '../../../services/location/locationContext'
 import { RestaurantsContext } from '../../../services/restaurants/restaurantContext'
 import { MapCallout } from '../components/mapCallout'
 
-export default function MapScreen({ navigation }) {
-    const { location } = useContext(LocationContext);
+const EmptyMap = () => {
+    return (
+        <MapView style={styles.map} />
+    )
+}
+
+function MapRestaurant({ navigation }) {
+    const { location, error } = useContext(LocationContext);
     const { restaurants = [] } = useContext(RestaurantsContext);
     const [latDelta, setLatDelta] = useState(0);
     const { lat, lng, viewport } = location;
@@ -18,7 +24,6 @@ export default function MapScreen({ navigation }) {
 
         setLatDelta(northeastLat - southwestLat);
     }, [location, viewport]);
-
 
     return (
         <>
@@ -53,6 +58,14 @@ export default function MapScreen({ navigation }) {
             </MapView>
         </>
     )
+}
+
+export default function MapScreen({ navigation }) {
+    const { error } = useContext(LocationContext);
+    if (error) {
+        return <EmptyMap />
+    }
+    return <MapRestaurant navigation={navigation} />
 }
 
 const styles = StyleSheet.create({
