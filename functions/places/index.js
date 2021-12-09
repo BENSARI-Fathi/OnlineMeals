@@ -36,7 +36,7 @@ module.exports.placesRequest = (request, response, client) => {
         timeout: 1000
     }).
         then(resp => {
-            resp.data.results = resp.data.results.map(addGoogleImage);
+            resp.data.results = resp.data.results.map(addMockImage);
             response.json(resp.data)
         }).
         catch(err => {

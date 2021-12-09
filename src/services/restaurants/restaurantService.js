@@ -4,7 +4,11 @@ import { host, isMock } from '../../utils/env'
 export const restaurantsRequest = async (location = "37.7749295,-122.4194155") => {
     try {
         const resp = await fetch(
+<<<<<<< HEAD
             `${host}/places?location=${location}&mock=${isMock}`
+=======
+            `${host}/places?location=${location}?mock=true`
+>>>>>>> 9253460... set mock to true to not consume too many api request on google.place.api
         )
         return await resp.json()
     } catch (error) {
