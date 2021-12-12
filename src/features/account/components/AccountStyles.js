@@ -1,4 +1,7 @@
 import styled from "styled-components/native";
+import { TextInput } from 'react-native-paper';
+import { Ionicons } from '@expo/vector-icons';
+
 
 export const AccountBackground = styled.ImageBackground.attrs({
     source: require("../../../../assets/home_bg.jpg"),
@@ -42,4 +45,18 @@ export const AnimationCover = styled.View`
     position: absolute;
     top: 50px;
     padding: ${(props) => props.theme.sizes[2]};
+`
+
+export const PasswordWrapper = styled.View`
+    flex-direction: row;
+`
+
+export const PasswordField = styled(TextInput)`
+    width: 100%;
+`
+
+export const EyeIcon = styled(Ionicons)`
+    position: relative;
+    left: -50%;
+    top: 20px;
 `
